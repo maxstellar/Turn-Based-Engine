@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cmma68wx7pjxk"]
+
+[ext_resource type="Texture2D" uid="uid://bkqv5mmp0ataj" path="res://images/icon.jpg" id="1_igant"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw42p"]
+albedo_texture = ExtResource("1_igant")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iu5wp"]
+material = SubResource("StandardMaterial3D_rw42p")
+
+[node name="Node3D" type="Node3D" unique_id=383191968]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1682055136]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1860025962]
+transform = Transform3D(1, 0, 4.371139e-08, 4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, -0.6086399, 0.15326738, -3.1165974)
+mesh = SubResource("PlaneMesh_iu5wp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=133635395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.463588, 0.90780115, 21.787676)
+light_energy = 0.25
