@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://daa7uar41h3ec" path="res://turn_manager.gd" id="2_rw42p"]
 [ext_resource type="PackedScene" uid="uid://b5hgv1rg5d622" path="res://health_bar.tscn" id="3_pbb3x"]
 [ext_resource type="Script" uid="uid://cxr1uafxoyits" path="res://enemy.gd" id="3_w13k5"]
-[ext_resource type="Texture2D" uid="uid://uf1wvo87xwep" path="res://images/character_femaleAdventurer_side.png" id="4_ka4bw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rw42p"]
 size = Vector3(60, 2, 60)
@@ -22,9 +21,6 @@ size = Vector3(60, 2, 60)
 background_mode = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1mvxi"]
-viewport_path = NodePath("Player/SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ka4bw"]
 viewport_path = NodePath("Player2/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pbb3x"]
@@ -54,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.137501, 1.296743, 4.2892594
 [node name="Player" type="Node3D" parent="." unique_id=497562079 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_iu5wp")
 health_bar = NodePath("SubViewport/PlayerHealthBar")
+health = 100
 
 [node name="PlayerSprite" type="Sprite3D" parent="Player" unique_id=1379187437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.049521, 0)
@@ -75,31 +72,10 @@ billboard = 1
 texture_filter = 0
 texture = SubResource("ViewportTexture_1mvxi")
 
-[node name="Player2" type="Node3D" parent="." unique_id=1338222504 node_paths=PackedStringArray("health_bar")]
-script = ExtResource("1_iu5wp")
-health_bar = NodePath("SubViewport/Player2HealthBar")
-
-[node name="Player2Sprite" type="Sprite3D" parent="Player2" unique_id=11751953]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1533725, 1.049521, 0)
-pixel_size = 0.008
-shaded = true
-alpha_cut = 2
-texture_filter = 0
-texture = ExtResource("4_ka4bw")
-
-[node name="SubViewport" type="SubViewport" parent="Player2" unique_id=1204493504]
-transparent_bg = true
-
-[node name="Player2HealthBar" parent="Player2/SubViewport" unique_id=1686134721 instance=ExtResource("3_pbb3x")]
-value = 100.0
-
-[node name="HealthBarSprite" type="Sprite3D" parent="Player2" unique_id=284998535]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.153, 1.919, 0)
-texture = SubResource("ViewportTexture_ka4bw")
-
 [node name="Enemy" type="Node3D" parent="." unique_id=221595117 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("3_w13k5")
 health_bar = NodePath("SubViewport/EnemyHealthBar")
+health = 100
 
 [node name="EnemySprite" type="Sprite3D" parent="Enemy" unique_id=63957800]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4314075, 0.578, 0)
